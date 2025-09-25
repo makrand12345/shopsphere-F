@@ -2,6 +2,7 @@ import { Component, OnInit, inject } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { CommonModule, NgFor } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
+import { environment } from '../../environments/environment';
 
 @Component({
   selector: 'app-admin-dashboard',
@@ -15,6 +16,6 @@ export class AdminDashboardComponent implements OnInit {
   products: any[] = [];
 
   ngOnInit(): void {
-    this.http.get<any[]>(`http://localhost:4000/api/products`).subscribe(p => this.products = p);
+    this.http.get<any[]>(`${environment.apiUrl}/products`).subscribe(p => this.products = p);
   }
 }
