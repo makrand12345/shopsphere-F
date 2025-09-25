@@ -1,0 +1,26 @@
+<section class="products-section">
+  <div class="overlay"></div>
+  
+  <div class="products-content">
+    <h1 class="title">Our Products</h1>
+    <p class="subtitle">Discover premium items in our mysterious marketplace</p>
+    
+    <div class="products-grid">
+      <div class="product-card" *ngFor="let product of products">
+        <img [src]="product.imageUrl || product.image" [alt]="product.title || product.name">
+        <h3>{{ product.title || product.name }}</h3>
+        <p>{{ product.description }}</p>
+        <span class="price">₹{{ product.price }}</span>
+        <button class="btn primary" (click)="addToCart(product)">
+          Add to Cart
+        </button>
+      </div>
+    </div>
+  </div>
+  
+  <div class="floating-elements">
+    <div class="floating-orb"></div>
+    <div class="floating-orb small"></div>
+    <div class="glowing-ring"></div>
+  </div>
+</section>

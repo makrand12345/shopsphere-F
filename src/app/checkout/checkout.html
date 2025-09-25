@@ -1,0 +1,38 @@
+<div class="checkout">
+  <h1>Checkout</h1>
+  <div class="grid">
+    <form (ngSubmit)="submit()" #f="ngForm" class="card">
+      <h2>Shipping Details</h2>
+      <label>Full Name<input name="fullName" [(ngModel)]="form.fullName" required /></label>
+      <label>Address<textarea name="address" [(ngModel)]="form.address" required></textarea></label>
+      <div class="row">
+        <label>City<input name="city" [(ngModel)]="form.city" required /></label>
+        <label>Postal Code<input name="postalCode" [(ngModel)]="form.postalCode" required /></label>
+      </div>
+      <div class="row">
+        <label>Country<input name="country" [(ngModel)]="form.country" required /></label>
+        <label>Phone<input name="phone" [(ngModel)]="form.phone" required /></label>
+      </div>
+
+      <h2>Payment</h2>
+      <label class="radio"><input type="radio" name="paymentMethod" [(ngModel)]="form.paymentMethod" value="cod" checked /> Cash on Delivery</label>
+      <label class="radio"><input type="radio" name="paymentMethod" [(ngModel)]="form.paymentMethod" value="card" /> Card (mock)</label>
+
+      <button class="btn primary" [disabled]="!f.form.valid">Pay ₹{{ total }}</button>
+    </form>
+
+    <div class="card summary">
+      <h2>Order Summary</h2>
+      <div class="item" *ngFor="let it of items">
+        <div class="left">
+          <div class="name">{{ it.name }}</div>
+          <div class="qty">Qty: {{ it.quantity || 1 }}</div>
+        </div>
+        <div class="price">₹{{ it.price * (it.quantity || 1) }}</div>
+      </div>
+      <div class="total">Total: ₹{{ total }}</div>
+    </div>
+  </div>
+</div>
+
+

@@ -1,0 +1,21 @@
+<div class="receipt" *ngIf="order as o">
+  <h1>Receipt</h1>
+  <div class="card">
+    <div>ID: {{ o.id }}</div>
+    <div>Date: {{ o.createdAt | date:'medium' }}</div>
+    <div>Status: {{ o.status }}</div>
+    <h3>Shipping</h3>
+    <div>{{ o.shipping.fullName }}</div>
+    <div>{{ o.shipping.address }}, {{ o.shipping.city }} {{ o.shipping.postalCode }}</div>
+    <div>{{ o.shipping.country }}</div>
+    <div>{{ o.shipping.phone }}</div>
+    <h3>Items</h3>
+    <div class="item" *ngFor="let it of o.items">
+      <span>{{ it.name }} × {{ it.quantity || 1 }}</span>
+      <span>₹{{ it.price * (it.quantity || 1) }}</span>
+    </div>
+    <div class="total">Total: ₹{{ o.total }}</div>
+  </div>
+</div>
+
+

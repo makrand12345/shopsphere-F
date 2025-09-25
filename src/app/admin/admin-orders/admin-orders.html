@@ -1,0 +1,21 @@
+<div class="admin-orders">
+  <h2>All Orders</h2>
+  <div *ngFor="let o of orders" class="order">
+    <div class="top">
+      <div>ID: {{ o.id }}</div>
+      <div>Date: {{ o.createdAt | date:'medium' }}</div>
+      <div>Status: {{ o.status }}</div>
+      <div>Total: ₹{{ o.total }}</div>
+    </div>
+    <div class="items">
+      <div *ngFor="let it of o.items">{{ it.name }} × {{ it.quantity || 1 }} — ₹{{ it.price * (it.quantity || 1) }}</div>
+    </div>
+    <div class="actions">
+      <button (click)="updateStatus(o, 'packed')">Mark Packed</button>
+      <button (click)="updateStatus(o, 'dispatched')">Mark Dispatched</button>
+      <button (click)="updateStatus(o, 'delivered')">Mark Delivered</button>
+      <button (click)="updateStatus(o, 'cancelled')">Cancel</button>
+    </div>
+  </div>
+</div>
+  

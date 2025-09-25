@@ -1,0 +1,83 @@
+/* Background (same theme as login) */
+.register-page {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: radial-gradient(circle at top left, #0f0f1a, #090913, #050510);
+  font-family: 'Segoe UI', sans-serif;
+  color: #e0e0ff;
+}
+
+/* Register form card */
+.register-form {
+  background: rgba(20, 20, 35, 0.95);
+  padding: 40px;
+  border-radius: 15px;
+  box-shadow: 0 0 40px rgba(139, 92, 246, 0.6);
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+}
+
+/* Title */
+.register-form h2 {
+  margin-bottom: 25px;
+  color: #c4b5fd;
+  font-size: 1.8rem;
+  text-shadow: 0 0 15px #6d28d9;
+}
+
+/* Labels */
+.register-form label {
+  display: block;
+  text-align: left;
+  margin-bottom: 15px;
+  font-size: 0.95rem;
+  color: #a1a1c2;
+}
+
+/* Inputs */
+.register-form input {
+  width: 100%;
+  padding: 12px;
+  margin-top: 6px;
+  border: none;
+  border-radius: 8px;
+  background: #0b0b14;
+  color: #fff;
+  font-size: 1rem;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.register-form input:focus {
+  box-shadow: 0 0 10px rgba(139, 92, 246, 0.7);
+}
+
+/* Button */
+.register-form button {
+  width: 100%;
+  padding: 14px;
+  border: none;
+  border-radius: 8px;
+  margin-top: 20px;
+  background: linear-gradient(90deg, #4c1d95, #6d28d9);
+  color: #fff;
+  font-weight: bold;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.register-form button:hover {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 0 20px rgba(139, 92, 246, 0.8);
+}
+
+/* Error */
+.error {
+  color: #f87171;
+  margin-top: 10px;
+  font-size: 0.9rem;
+}

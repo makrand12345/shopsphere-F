@@ -1,0 +1,20 @@
+<div class="orders-page">
+    <h2>My Orders</h2>
+    <div *ngIf="orders.length; else noOrders">
+      <div class="order-card" *ngFor="let o of orders">
+        <h3>Order #{{ o._id }}</h3>
+        <p>Status: <span class="status">{{ o.status }}</span></p>
+        <p>Total: ₹{{ o.total }}</p>
+        <div class="items">
+          <div class="item" *ngFor="let it of o.items">
+            <strong>{{ it.product?.title || it.name }}</strong> — {{ it.quantity }} × ₹{{ it.priceAtPurchase || it.price }}
+          </div>
+        </div>
+        <small>Placed: {{ o.createdAt | date:'short' }}</small>
+      </div>
+    </div>
+    <ng-template #noOrders>
+      <p>You have no orders yet.</p>
+    </ng-template>
+  </div>
+  

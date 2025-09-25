@@ -1,0 +1,20 @@
+<div class="admin-page">
+    <h2>Admin Dashboard</h2>
+    <div class="links">
+      <a routerLink="/admin/products">Manage Products</a>
+      <a routerLink="/admin/orders">Manage Orders</a>
+    </div>
+    <div class="preview">
+      <h3>Recent Products</h3>
+      <div class="grid">
+        <div class="card" *ngFor="let p of products | slice:0:6">
+          <img [src]="p.imageUrl || p.image" alt="" />
+          <div class="body">
+            <div class="title">{{ p.title }}</div>
+            <div class="price">₹{{ p.price }}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

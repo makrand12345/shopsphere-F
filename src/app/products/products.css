@@ -1,0 +1,221 @@
+.products-section {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 80px 20px;
+  background: radial-gradient(circle at top left, #0f0f1a, #090913, #050510);
+  color: #e0e0ff;
+  font-family: 'Segoe UI', sans-serif;
+  overflow: hidden;
+}
+
+.overlay {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: radial-gradient(circle at 30% 30%, rgba(139, 92, 246, 0.1), transparent 70%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.products-content {
+  position: relative;
+  z-index: 2;
+  max-width: 1200px;
+  width: 100%;
+  text-align: center;
+  animation: fadeInUp 1.8s ease-in-out;
+}
+
+.products-content .title {
+  font-size: 3rem;
+  margin-bottom: 15px;
+  color: #f3f4ff;
+}
+
+.products-content .subtitle {
+  font-size: 1.2rem;
+  margin-bottom: 50px;
+  color: #a1a1c2;
+  line-height: 1.5;
+}
+
+/* Product Grid */
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+  justify-items: center;
+}
+
+/* Product Card */
+.product-card {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 20px;
+  padding: 20px;
+  text-align: center;
+  width: 100%;
+  max-width: 280px;
+  transition: transform 0.4s, background 0.4s;
+  box-shadow: 0 0 20px rgba(139, 92, 246, 0.2);
+}
+
+.product-card:hover {
+  transform: translateY(-15px);
+  background: rgba(255, 255, 255, 0.12);
+  box-shadow: 0 0 40px rgba(139, 92, 246, 0.5);
+}
+
+.product-card img {
+  width: 100%;
+  border-radius: 15px;
+  margin-bottom: 15px;
+}
+
+.product-card h3 {
+  font-size: 1.4rem;
+  margin-bottom: 10px;
+  color: #f3f4ff;
+}
+
+.product-card p {
+  font-size: 0.95rem;
+  margin-bottom: 15px;
+  color: #c4c4ff;
+}
+
+.price {
+  font-weight: bold;
+  font-size: 1.1rem;
+  display: block;
+  margin-bottom: 15px;
+  color: #f3f4ff;
+}
+
+/* Buttons */
+.btn.primary {
+  background: linear-gradient(90deg, #4c1d95, #6d28d9);
+  color: #fff;
+  padding: 10px 25px;
+  border-radius: 30px;
+  font-weight: bold;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.btn.primary:hover {
+  transform: translateY(-4px) scale(1.05);
+  box-shadow: 0 0 30px rgba(139, 92, 246, 0.7);
+}
+
+/* Floating Graphics */
+.floating-orb {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(139, 92, 246, 0.4), rgba(76, 29, 149, 0.1));
+  animation: float 6s infinite ease-in-out;
+  position: absolute;
+  right: 100px;
+  top: 100px;
+  box-shadow: 0 0 40px rgba(139, 92, 246, 0.5);
+}
+
+.floating-orb.small {
+  width: 100px;
+  height: 100px;
+  right: 50px;
+  bottom: 100px;
+  animation: float 8s infinite ease-in-out;
+}
+
+.glowing-ring {
+  width: 250px;
+  height: 250px;
+  border: 2px solid rgba(139, 92, 246, 0.6);
+  border-radius: 50%;
+  position: absolute;
+  left: -50px;
+  bottom: 80px;
+  animation: pulse 4s infinite alternate;
+  box-shadow: 0 0 25px rgba(139, 92, 246, 0.4);
+}
+
+/* Animations */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulse {
+  from { transform: scale(0.9); opacity: 0.5; }
+  to { transform: scale(1.1); opacity: 1; }
+}
+
+/* Notification */
+.notification {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 1000;
+  animation: slideInOut 0.5s ease-in-out;
+}
+
+.notification-content {
+  background: linear-gradient(135deg, #4c1d95, #6d28d9);
+  color: white;
+  padding: 1rem 1.5rem;
+  border-radius: 15px;
+  box-shadow: 0 0 30px rgba(139, 92, 246, 0.5);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: bold;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(139, 92, 246, 0.3);
+}
+
+.notification-content svg {
+  color: #10b981;
+  flex-shrink: 0;
+}
+
+@keyframes slideInOut {
+  0% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  10%, 90% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .products-content {
+    padding: 0 20px;
+  }
+  .products-grid {
+    gap: 20px;
+  }
+  .floating-orb, .glowing-ring {
+    display: none;
+  }
+  
+  .notification {
+    top: 10px;
+    right: 10px;
+    left: 10px;
+  }
+}

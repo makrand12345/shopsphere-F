@@ -1,0 +1,14 @@
+<div class="profile" *ngIf="auth.me$ | async as me; else loading">
+  <h2>Welcome, {{ me.name }}</h2>
+  <p>Email: {{ me.email }}</p>
+  <p>Role: {{ me.role }}</p>
+  <button (click)="auth.logout()">Logout</button>
+
+  <h3>Your Orders</h3>
+  <app-profile-orders></app-profile-orders>
+</div>
+<ng-template #loading>
+  <p>Loading profile...</p>
+</ng-template>
+
+
