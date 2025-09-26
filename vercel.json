@@ -1,12 +1,11 @@
 {
   "version": 2,
+  "buildCommand": "ng build --configuration production",
+  "outputDirectory": "dist/shopsphere-f",
   "builds": [
     {
       "src": "package.json",
-      "use": "@vercel/static-build",
-      "config": {
-        "distDir": "dist/shopsphere-f"
-      }
+      "use": "@vercel/static-build"
     }
   ],
   "routes": [

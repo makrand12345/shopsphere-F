@@ -1,6 +1,4 @@
 export const environment = {
-  production: true,
+  production: false,
   apiUrl: 'https://shopsphere-b.vercel.app/api'
 };
-
-
