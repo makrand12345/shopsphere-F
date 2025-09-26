@@ -4,7 +4,6 @@ import { CommonModule, NgFor } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../../../environments/environment';
 
-
 @Component({
   selector: 'app-admin-dashboard',
   standalone: true,
