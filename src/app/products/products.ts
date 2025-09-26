@@ -2,6 +2,7 @@ import { Component, OnInit, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CartService } from '../services/cart.service';
 import { HttpClient } from '@angular/common/http';
+import { environment } from '../../environments/environment';
 
 @Component({
   selector: 'app-products',
@@ -17,7 +18,7 @@ export class Products implements OnInit {
   constructor(private cartService: CartService) {}
 
   ngOnInit() {
-    this.http.get<any[]>(`http://localhost:4000/api/products`).subscribe(products => {
+    this.http.get<any[]>(`${environment.apiUrl}/products`).subscribe(products => {
       this.products = products;
     });
   }

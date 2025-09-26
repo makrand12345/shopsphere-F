@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
+import { environment } from '../../environments/environment';
 
 @Component({
   selector: 'app-orders',
@@ -11,7 +12,7 @@ import { CommonModule } from '@angular/common';
 })
 export class OrdersComponent implements OnInit {
   orders: any[] = [];
-  api = 'http://localhost:4000/api/orders/my';
+  api = `${environment.apiUrl}/orders/my`;
 
   constructor(private http: HttpClient) {}
 

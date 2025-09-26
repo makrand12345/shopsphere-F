@@ -2,6 +2,7 @@ import { Injectable, inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { BehaviorSubject, tap, switchMap } from 'rxjs';
+import { environment } from '../../environments/environment';
 
 export type Me = { _id: string; name: string; email: string; role: 'customer' | 'admin' };
 
@@ -16,7 +17,7 @@ export class AuthService {
   set token(v: string | null) { v ? localStorage.setItem(this.tokenKey, v) : localStorage.removeItem(this.tokenKey); }
 
   login(email: string, password: string) {
-    return this.http.post<{ token: string }>(`http://localhost:4000/api/auth/login`, { email, password })
+    return this.http.post<{ token: string }>(`${environment.apiUrl}/auth/login`, { email, password })
       .pipe(
         tap(({ token }) => { this.token = token; }),
         switchMap(() => this.fetchMe())
@@ -24,7 +25,7 @@ export class AuthService {
   }
 
   register(name: string, email: string, password: string) {
-    return this.http.post<{ token: string }>(`http://localhost:4000/api/auth/register`, { name, email, password })
+    return this.http.post<{ token: string }>(`${environment.apiUrl}/auth/register`, { name, email, password })
       .pipe(
         tap(({ token }) => { this.token = token; }),
         switchMap(() => this.fetchMe())
@@ -34,7 +35,7 @@ export class AuthService {
   logout() { this.token = null; this.me$.next(null); this.router.navigateByUrl('/login'); }
 
   fetchMe() {
-    return this.http.get<Me>(`http://localhost:4000/api/auth/me`).pipe(tap((me) => this.me$.next(me)));
+    return this.http.get<Me>(`${environment.apiUrl}/auth/me`).pipe(tap((me) => this.me$.next(me)));
   }
 }
 

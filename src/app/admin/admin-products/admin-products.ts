@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { environment } from '../../../environments/environment';
 
 @Component({
   selector: 'app-admin-products',
@@ -13,7 +14,7 @@ import { CommonModule } from '@angular/common';
 export class AdminProductsComponent implements OnInit {
   products: any[] = [];
   name = ''; price: number|null = null; description = ''; image = '';
-  api = 'http://localhost:4000/api/products';
+  api = `${environment.apiUrl}/products`;
   editId: string | null = null;
   editModel: any = { title: '', price: null, description: '', imageUrl: '' };
 
