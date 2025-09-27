@@ -5,14 +5,14 @@
       "src": "package.json",
       "use": "@vercel/static-build",
       "config": {
-        "distDir": "dist/shopsphere-F"
+        "distDir": "dist/shopsphere-F/browser"
       }
     }
   ],
   "routes": [
     {
       "src": "/(.*)",
-      "dest": "/dist/shopsphere-F/index.html"
+      "dest": "/index.html"
     }
   ]
 }
