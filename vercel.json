@@ -2,10 +2,6 @@
   "version": 2,
   "buildCommand": "npm run build",
   "outputDirectory": "dist/shopsphere-F/browser",
-  "routes": [
-    {
-      "src": "/(.*)",
-      "dest": "/index.html"
-    }
-  ]
+  "cleanUrls": true,
+  "trailingSlash": false
 }
