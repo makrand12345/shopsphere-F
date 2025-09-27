@@ -30,4 +30,6 @@ export const routes: Routes = [
   { path: 'admin', component: AdminDashboardComponent, canActivate: [AdminGuard] },
   { path: 'admin/products', component: AdminProductsComponent, canActivate: [AdminGuard] },
   { path: 'admin/orders', component: AdminOrdersComponent, canActivate: [AdminGuard] },
+  
+  { path: '**', redirectTo: '' }
 ];
