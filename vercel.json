@@ -1,14 +1,7 @@
 {
   "version": 2,
-  "builds": [
-    {
-      "src": "package.json",
-      "use": "@vercel/static-build",
-      "config": {
-        "distDir": "dist/shopsphere-F/browser"
-      }
-    }
-  ],
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist/shopsphere-F/browser",
   "routes": [
     {
       "src": "/(.*)",
